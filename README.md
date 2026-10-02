@@ -45,7 +45,7 @@ For each selected role, the system:
 - Realistic, clearly labeled demo opportunities
 - Modular live-provider interfaces with deterministic Demo Mode fallback
 
-## Phase 2: integration-ready product
+## Approval-first workflow
 
 The private product now includes:
 
@@ -75,6 +75,21 @@ The private product now also supports:
 - Operational analytics and provider activity/audit history
 
 The production workflow remains human-controlled: finding opportunities can be automated, but outreach cannot be sent until a user reviews and explicitly approves it.
+
+## Production architecture
+
+ApplyPilot is deployment-ready without tying the product to one hosting vendor:
+
+- SQLite for immediate local use and standard PostgreSQL for production
+- Versioned database migrations and safe health/readiness checks
+- Typed environment configuration with credential-free fallback states
+- GitHub Actions validation for backend tests, Python checks, frontend lint, and production build
+- Non-root frontend and backend containers plus production-like Docker Compose
+- Structured provider logging that excludes tokens, API keys, resume contents, and private message bodies
+- Configurable CORS, OAuth state validation, safe public-page extraction, PDF validation, and backend send limits
+- A visible **DRY RUN** mode that permits live research and Gmail drafts while blocking actual sends
+
+The integration screen communicates GitHub, Gmail, Search, AI, and database health without exposing secrets. Gmail stays draft-only by default.
 
 ## Technology
 
@@ -147,9 +162,11 @@ The end-to-end demo supports:
 
 Quality checks completed:
 
-- Backend automated tests: **22 passed**
+- Backend automated tests: **34 passed**
 - Frontend lint: **passed**
 - Next.js production build: **passed**
+- Fresh-database migration: **passed**
+- Demo Mode, provider status, and DRY RUN smoke tests: **passed**
 - Selective approval and send workflow: **verified locally**
 - Demo fallback, selective approval, controlled send, and analytics: **verified locally**
 - Live-provider credentials remain optional and are never committed
@@ -162,6 +179,20 @@ Quality checks completed:
 - Browser-assisted application forms
 - Scheduled background searches and notifications
 - Multi-user authentication
+
+## Screenshot gallery
+
+Real product screenshots will be added after final privacy review. Planned views:
+
+1. Chat search and ranked opportunity cards
+2. Opportunity provenance, fit, skills, and blockers
+3. Application review and selective approval
+4. GitHub portfolio intelligence
+5. Integration health and DRY RUN state
+6. Application tracker
+7. Analytics
+
+No mockup is presented as a live integration result.
 
 ## Source access
 
