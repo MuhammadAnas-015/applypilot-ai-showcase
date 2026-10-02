@@ -43,7 +43,7 @@ For each selected role, the system:
 - Kanban application tracker with persistent state
 - Responsive light and dark product UI
 - Realistic, clearly labeled demo opportunities
-- Provider-ready interfaces for future LLM, GitHub, and Gmail integrations
+- Modular live-provider interfaces with deterministic Demo Mode fallback
 
 ## Phase 2: integration-ready product
 
@@ -59,6 +59,22 @@ The private product now includes:
 - Kanban and table tracking, blocker detection, reply architecture, and integration settings
 
 External services remain visibly **Not connected** until credentials are supplied. Demo Mode continues to work without GitHub, Gmail, job APIs, or an AI key.
+
+## Phase 3: live discovery and outreach
+
+The private product now also supports:
+
+- Saved daily-search profiles, run history, source provenance, normalization, and duplicate detection
+- Pluggable live web-search and company-careers discovery with automatic Demo Mode fallback
+- Evidence-based company research that clearly separates sourced facts, inferences, and proposed pitches
+- Public contact-route discovery with verification and manual-confirmation gates before outreach
+- Deeper GitHub portfolio intelligence across languages, topics, feature evidence, originality, and template signals
+- Confidence-aware project selection that explicitly reports when there is no strong portfolio match
+- OpenAI-compatible generation boundaries with deterministic local behavior when no model is connected
+- Gmail OAuth, draft-only mode, controlled sends, and thread-level reply synchronization
+- Operational analytics and provider activity/audit history
+
+The production workflow remains human-controlled: finding opportunities can be automated, but outreach cannot be sent until a user reviews and explicitly approves it.
 
 ## Technology
 
@@ -83,6 +99,9 @@ flowchart LR
     AS --> OG[Outreach generator]
     OG --> AG[Approval gate]
     AG --> EP[Email provider interface]
+    AS --> SP[Search providers]
+    AS --> CR[Company research]
+    AS --> GI[GitHub intelligence]
     API --> DB[(Application database)]
 ```
 
@@ -109,6 +128,9 @@ Every score includes visible match reasons and missing skills.
 - No location or student-status disclosure unless required
 - Demo opportunities and simulated email delivery are clearly marked
 - No CAPTCHA bypassing or access-restriction circumvention
+- Public HTTP(S) extraction only, with private-host, size, content-type, and access-wall rejection
+- Verified or manually confirmed recipients for non-demo sends
+- Duplicate company, role, and recipient protection plus configurable send limits
 
 ## Verified MVP workflow
 
@@ -125,21 +147,21 @@ The end-to-end demo supports:
 
 Quality checks completed:
 
-- Backend automated tests: **13 passed**
+- Backend automated tests: **22 passed**
 - Frontend lint: **passed**
 - Next.js production build: **passed**
 - Selective approval and send workflow: **verified locally**
-- Real public GitHub metadata sync: **verified**
+- Demo fallback, selective approval, controlled send, and analytics: **verified locally**
+- Live-provider credentials remain optional and are never committed
 
 ## Roadmap
 
-- Real job-search and company-research providers
-- GitHub OAuth and repository synchronization
-- Gmail OAuth and verified recipient review
-- Recruiter reply monitoring
+- Vendor-specific job-search adapters
+- Encrypted production secret storage
+- Rich reply classification and assisted response drafting
 - Browser-assisted application forms
-- Scheduled opportunity searches
-- Analytics and multi-user authentication
+- Scheduled background searches and notifications
+- Multi-user authentication
 
 ## Source access
 
