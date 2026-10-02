@@ -45,6 +45,21 @@ For each selected role, the system:
 - Realistic, clearly labeled demo opportunities
 - Provider-ready interfaces for future LLM, GitHub, and Gmail integrations
 
+## Phase 2: integration-ready product
+
+The private product now includes:
+
+- A strict `awaiting approval → approved → sending → sent` workflow
+- Selective approval, duplicate-send prevention, failure history, and retry support
+- Real GitHub repository/README synchronization with evidence-quality analysis
+- Template-signal detection so keyword-heavy starter repositories do not outrank stronger original work
+- Gmail OAuth-ready architecture with safer draft-only delivery as the default
+- Manual job and company-outreach opportunities
+- Persistent candidate profile and validated PDF resume metadata
+- Kanban and table tracking, blocker detection, reply architecture, and integration settings
+
+External services remain visibly **Not connected** until credentials are supplied. Demo Mode continues to work without GitHub, Gmail, job APIs, or an AI key.
+
 ## Technology
 
 | Layer | Stack |
@@ -110,10 +125,11 @@ The end-to-end demo supports:
 
 Quality checks completed:
 
-- Backend automated tests: **4 passed**
+- Backend automated tests: **13 passed**
 - Frontend lint: **passed**
 - Next.js production build: **passed**
-- Live search and preparation workflow: **verified locally**
+- Selective approval and send workflow: **verified locally**
+- Real public GitHub metadata sync: **verified**
 
 ## Roadmap
 
@@ -130,4 +146,3 @@ Quality checks completed:
 The source code is intentionally private to protect the original implementation. Recruiters or collaborators can request a guided technical walkthrough or temporary review access directly from the author.
 
 © 2026 Muhammad Anas. All rights reserved.
-
