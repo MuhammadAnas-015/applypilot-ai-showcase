@@ -91,6 +91,20 @@ ApplyPilot is deployment-ready without tying the product to one hosting vendor:
 
 The integration screen communicates GitHub, Gmail, Search, AI, and database health without exposing secrets. Gmail stays draft-only by default.
 
+## Safe live-setup workflow
+
+ApplyPilot supports live integrations without pretending credentials are already connected:
+
+- **GitHub:** public-only by default, authenticated metadata and rate-limit validation when a user supplies a token
+- **Search:** harmless contract test and normalization check before any real opportunity workflow
+- **AI:** low-cost structured health prompt with deterministic fallback
+- **Gmail:** OAuth connection validation and an explicitly confirmed self-addressed draft; nothing is sent
+- **Database:** PostgreSQL connectivity, required-table, and migration-revision validation
+
+A compact provider matrix shows Ready, Connected, Demo, Not configured, or Error states with the last check time. `DRY_RUN` allows live research and draft creation while backend guards continue to block actual delivery—even for an approved application.
+
+Delivery remains approval-first: live provider access cannot approve an application, verify a recipient, bypass blockers, disable duplicate protection, or grant send permission.
+
 ## Technology
 
 | Layer | Stack |
